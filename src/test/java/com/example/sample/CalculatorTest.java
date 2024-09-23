@@ -67,4 +67,18 @@ class CalculatorTest {
     //then
     assertThat(result).isEqualTo(2);
   }
+
+  @Test
+  public void 잘못된_연산자() {
+    //given
+    long num1 = 6;
+    long num2 = 3;
+    String operator = "x";
+    Calculator calculator = new Calculator();
+
+    //when
+    //then
+    assertThatThrownBy(() -> calculator.calculate(num1, num2, operator)).isInstanceOf(
+        InvalidOperatorException.class);
+  }
 }
