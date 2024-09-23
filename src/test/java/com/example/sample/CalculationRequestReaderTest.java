@@ -1,5 +1,7 @@
 package com.example.sample;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.ByteArrayInputStream;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,11 +15,11 @@ class CalculationRequestReaderTest {
 
     //when
     System.setIn(new ByteArrayInputStream("2 + 3".getBytes()));
-    String[] result = requestReader.readRequest();
+    CalculationRequest request = requestReader.read();
 
     //then
-    Assertions.assertThat(result[0]).isEqualTo("2");
-    Assertions.assertThat(result[1]).isEqualTo("+");
-    Assertions.assertThat(result[2]).isEqualTo("3");
+    assertThat(request.getNum1()).isEqualTo(2);
+    assertThat(request.getNum2()).isEqualTo(3);
+    assertThat(request.getOperator()).isEqualTo("+");
   }
 }
