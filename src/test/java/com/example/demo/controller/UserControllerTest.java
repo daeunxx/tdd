@@ -68,6 +68,13 @@ class UserControllerTest {
   }
 
   @Test
+  void 잘못된_인증_코드_권한없음() throws Exception {
+    mockMvc.perform(get("/api/users/2/verify")
+            .queryParam("certificationCode", "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaac"))
+        .andExpect(status().isForbidden());
+  }
+
+  @Test
   void 이메일_헤더로_주소_조회() throws Exception {
     mockMvc.perform(get("/api/users/me")
             .header("EMAIL", "sss3598@gmail.com"))
