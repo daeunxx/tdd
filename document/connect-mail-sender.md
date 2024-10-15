@@ -1,7 +1,7 @@
 # 구글 이메일 발송하기
 
 1. 메일 발송을 위한 계정 세팅 변경
-    ![01.메일 발송을 위한 계정 세팅 변경](./resources/01.mail-settings.png)
+   ![01.메일 발송을 위한 계정 세팅 변경](./resources/01.mail-settings.png)
 2. 계정에 애플리케이션 접근을 위한 패스워드 생성
    ![012.계정에 애플리케이션 접근을 위한 패스워드 생성](./resources/02.mail-settings.png)
 3. 메일을 선택

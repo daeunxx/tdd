@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class UserCreateController {
 
-    private final UserController userController;
-    private final UserService userService;
+  private final UserController userController;
+  private final UserService userService;
 
-    @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody UserCreateDto userCreateDto) {
-        UserEntity userEntity = userService.createUser(userCreateDto);
-        return ResponseEntity
-            .status(HttpStatus.CREATED)
-            .body(userController.toResponse(userEntity));
-    }
+  @PostMapping
+  public ResponseEntity<UserResponse> createUser(@RequestBody UserCreateDto userCreateDto) {
+    UserEntity userEntity = userService.create(userCreateDto);
+    return ResponseEntity
+        .status(HttpStatus.CREATED)
+        .body(userController.toResponse(userEntity));
+  }
 
 }

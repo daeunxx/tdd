@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthCheckController {
 
-    @GetMapping("/health_check.html")
-    public ResponseEntity<Void> healthCheck() {
-        return ResponseEntity
-            .ok()
-            .build();
-    }
+  @GetMapping("/health_check.html")
+  public ResponseEntity<Void> healthCheck() {
+    return ResponseEntity
+        .ok()
+        .build();
+  }
 }

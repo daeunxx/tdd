@@ -8,9 +8,9 @@ import lombok.Setter;
 @Setter
 public class UserResponse {
 
-    private Long id;
-    private String email;
-    private String nickname;
-    private UserStatus status;
-    private Long lastLoginAt;
+  private Long id;
+  private String email;
+  private String nickname;
+  private UserStatus status;
+  private Long lastLoginAt;
 }

@@ -7,14 +7,14 @@ import lombok.Getter;
 @Getter
 public class UserUpdateDto {
 
-    private final String nickname;
-    private final String address;
+  private final String nickname;
+  private final String address;
 
-    @Builder
-    public UserUpdateDto(
-        @JsonProperty("nickname") String nickname,
-        @JsonProperty("address") String address) {
-        this.nickname = nickname;
-        this.address = address;
-    }
+  @Builder
+  public UserUpdateDto(
+      @JsonProperty("nickname") String nickname,
+      @JsonProperty("address") String address) {
+    this.nickname = nickname;
+    this.address = address;
+  }
 }

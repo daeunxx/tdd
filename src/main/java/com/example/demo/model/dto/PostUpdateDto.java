@@ -7,11 +7,11 @@ import lombok.Getter;
 @Getter
 public class PostUpdateDto {
 
-    private final String content;
+  private final String content;
 
-    @Builder
-    public PostUpdateDto(
-        @JsonProperty("content") String content) {
-        this.content = content;
-    }
+  @Builder
+  public PostUpdateDto(
+      @JsonProperty("content") String content) {
+    this.content = content;
+  }
 }

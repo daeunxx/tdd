@@ -17,21 +17,21 @@ import lombok.Setter;
 @Table(name = "posts")
 public class PostEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(name = "content")
-    private String content;
+  @Column(name = "content")
+  private String content;
 
-    @Column(name = "created_at")
-    private Long createdAt;
+  @Column(name = "created_at")
+  private Long createdAt;
 
-    @Column(name = "modified_at")
-    private Long modifiedAt;
+  @Column(name = "modified_at")
+  private Long modifiedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity writer;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private UserEntity writer;
 
 }

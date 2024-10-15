@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class PostResponse {
 
-    private Long id;
-    private String content;
-    private Long createdAt;
-    private Long modifiedAt;
-    private UserResponse writer;
+  private Long id;
+  private String content;
+  private Long createdAt;
+  private Long modifiedAt;
+  private UserResponse writer;
 }

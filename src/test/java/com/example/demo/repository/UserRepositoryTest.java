@@ -32,13 +32,15 @@ class UserRepositoryTest {
 
   @Test
   void findByEmailAndStatus_메서드로_유저_정보_찾기() {
-    Optional<UserEntity> result = userRepository.findByEmailAndStatus("sss3598@gmail.com", UserStatus.ACTIVE);
+    Optional<UserEntity> result = userRepository.findByEmailAndStatus("sss3598@gmail.com",
+        UserStatus.ACTIVE);
     assertThat(result.isPresent()).isTrue();
   }
 
   @Test
   void findByEmailAndStatus_메서드에_데이터가_없으면_Optional_empty() {
-    Optional<UserEntity> result = userRepository.findByEmailAndStatus("sss3598@gmail.com", UserStatus.PENDING);
+    Optional<UserEntity> result = userRepository.findByEmailAndStatus("sss3598@gmail.com",
+        UserStatus.PENDING);
     assertThat(result.isEmpty()).isTrue();
   }
 }
