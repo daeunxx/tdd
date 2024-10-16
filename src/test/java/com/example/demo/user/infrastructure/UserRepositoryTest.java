@@ -14,7 +14,7 @@ import org.springframework.test.context.jdbc.Sql;
 class UserRepositoryTest {
 
   @Autowired
-  private UserRepository userRepository;
+  private UserJpaRepository userRepository;
 
 
   @Test
