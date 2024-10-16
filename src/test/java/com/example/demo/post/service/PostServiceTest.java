@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 
 import com.example.demo.common.domain.exception.ResourceNotFoundException;
+import com.example.demo.post.domain.Post;
 import com.example.demo.post.domain.PostCreate;
 import com.example.demo.post.domain.PostUpdate;
 import com.example.demo.post.infrastructure.PostEntity;
@@ -36,7 +37,7 @@ class PostServiceTest {
   void getById_존재하는_게시물_조회() {
     // given
     // when
-    PostEntity result = postService.getById(1);
+    Post result = postService.getById(1);
 
     // then
     assertThat(result).isNotNull();
@@ -57,13 +58,13 @@ class PostServiceTest {
         .build();
 
     // when
-    PostEntity postEntity = postService.create(postCreate);
+    Post post = postService.create(postCreate);
 
     // then
-    assertThat(postEntity).isNotNull();
-    assertThat(postEntity.getWriter().getId()).isEqualTo(1);
-    assertThat(postEntity.getContent()).isEqualTo("hi");
-    //assertThat(postEntity.getCreatedAt()).isGreaterThan(0);
+    assertThat(post).isNotNull();
+    assertThat(post.getWriter().getId()).isEqualTo(1);
+    assertThat(post.getContent()).isEqualTo("hi");
+    //assertThat(post.getCreatedAt()).isGreaterThan(0);
   }
 
   @Test
@@ -74,11 +75,11 @@ class PostServiceTest {
         .build();
 
     // when
-    PostEntity postEntity = postService.update(1, postUpdate);
+    Post post = postService.update(1, postUpdate);
 
     // then
-    assertThat(postEntity).isNotNull();
-    assertThat(postEntity.getContent()).isEqualTo("hi everyone");
-    assertThat(postEntity.getModifiedAt()).isGreaterThan(0);
+    assertThat(post).isNotNull();
+    assertThat(post.getContent()).isEqualTo("hi everyone");
+    assertThat(post.getModifiedAt()).isGreaterThan(0);
   }
 }
