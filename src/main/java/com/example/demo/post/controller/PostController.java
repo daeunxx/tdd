@@ -1,5 +1,6 @@
 package com.example.demo.post.controller;
 
+import com.example.demo.post.domain.Post;
 import com.example.demo.user.controller.UserController;
 import com.example.demo.post.controller.response.PostResponse;
 import com.example.demo.post.domain.PostUpdate;
@@ -39,13 +40,13 @@ public class PostController {
         .body(toResponse(postService.update(id, postUpdate)));
   }
 
-  public PostResponse toResponse(PostEntity postEntity) {
+  public PostResponse toResponse(Post post) {
     PostResponse PostResponse = new PostResponse();
-    PostResponse.setId(postEntity.getId());
-    PostResponse.setContent(postEntity.getContent());
-    PostResponse.setCreatedAt(postEntity.getCreatedAt());
-    PostResponse.setModifiedAt(postEntity.getModifiedAt());
-    PostResponse.setWriter(userController.toResponse(postEntity.getWriter()));
+    PostResponse.setId(post.getId());
+    PostResponse.setContent(post.getContent());
+    PostResponse.setCreatedAt(post.getCreatedAt());
+    PostResponse.setModifiedAt(post.getModifiedAt());
+    PostResponse.setWriter(userController.toResponse(post.getWriter()));
     return PostResponse;
   }
 }
