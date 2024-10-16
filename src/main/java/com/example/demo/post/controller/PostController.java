@@ -29,7 +29,7 @@ public class PostController {
   public ResponseEntity<PostResponse> getPostById(@PathVariable long id) {
     return ResponseEntity
         .ok()
-        .body(toResponse(postService.getById(id)));
+        .body(PostResponse.from(postService.getById(id)));
   }
 
   @PutMapping("/{id}")
@@ -37,16 +37,6 @@ public class PostController {
       @RequestBody PostUpdate postUpdate) {
     return ResponseEntity
         .ok()
-        .body(toResponse(postService.update(id, postUpdate)));
-  }
-
-  public PostResponse toResponse(Post post) {
-    PostResponse PostResponse = new PostResponse();
-    PostResponse.setId(post.getId());
-    PostResponse.setContent(post.getContent());
-    PostResponse.setCreatedAt(post.getCreatedAt());
-    PostResponse.setModifiedAt(post.getModifiedAt());
-    PostResponse.setWriter(userController.toResponse(post.getWriter()));
-    return PostResponse;
+        .body(PostResponse.from(postService.update(id, postUpdate)));
   }
 }
