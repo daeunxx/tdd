@@ -1,5 +1,6 @@
 package com.example.demo.mock;
 
+import com.example.demo.common.domain.exception.ResourceNotFoundException;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.service.port.UserRepository;
@@ -15,18 +16,26 @@ public class FakeUserRepository implements UserRepository {
 
 
   @Override
+  public User getById(long id) {
+    return findById(id).orElseThrow(() -> new ResourceNotFoundException("Users", id));
+  }
+
+  @Override
   public Optional<User> findById(long id) {
     return users.stream().filter(user -> user.getId().equals(id)).findFirst();
   }
 
   @Override
   public Optional<User> findByIdAndStatus(long id, UserStatus userStatus) {
-    return users.stream().filter(user -> user.getId().equals(id) && user.getStatus() == userStatus).findFirst();
+    return users.stream().filter(user -> user.getId().equals(id) && user.getStatus() == userStatus)
+        .findFirst();
   }
 
   @Override
   public Optional<User> findByEmailAndStatus(String email, UserStatus userStatus) {
-    return users.stream().filter(user -> user.getEmail().equals(email) && user.getStatus() == userStatus).findFirst();
+    return users.stream()
+        .filter(user -> user.getEmail().equals(email) && user.getStatus() == userStatus)
+        .findFirst();
   }
 
   @Override
