@@ -77,7 +77,7 @@ class MyInfoControllerTest {
         .nickname("dada")
         .address("Pangyo")
         .build();
-    ResponseEntity<MyProfileResponse> result = testContainer.myInfoController.updateMyInfo(
+    ResponseEntity<MyProfileResponse> result = testContainer.myInfoController.update(
         user.getEmail(), userUpdate);
 
     //then

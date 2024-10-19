@@ -33,7 +33,7 @@ class UserControllerTest {
     testContainer.userRepository.save(user);
 
     //when
-    ResponseEntity<UserResponse> result = testContainer.userController.getUserById(user.getId());
+    ResponseEntity<UserResponse> result = testContainer.userController.getById(user.getId());
 
     //then
     assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -51,7 +51,7 @@ class UserControllerTest {
 
     //when
     //then
-    assertThatThrownBy(() -> testContainer.userController.getUserById(1L)).isInstanceOf(
+    assertThatThrownBy(() -> testContainer.userController.getById(1L)).isInstanceOf(
         ResourceNotFoundException.class);
   }
 

@@ -41,7 +41,7 @@ public class MyInfoController {
 
   @PutMapping("/me")
   @Parameter(in = ParameterIn.HEADER, name = "EMAIL")
-  public ResponseEntity<MyProfileResponse> updateMyInfo(
+  public ResponseEntity<MyProfileResponse> update(
       @Parameter(name = "EMAIL", in = ParameterIn.HEADER)
       @RequestHeader("EMAIL") String email, // 일반적으로 스프링 시큐리티를 사용한다면 UserPrincipal 에서 가져옵니다.
       @RequestBody UserUpdate userUpdate
