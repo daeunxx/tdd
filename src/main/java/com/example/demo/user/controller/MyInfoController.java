@@ -7,6 +7,7 @@ import com.example.demo.user.domain.UserUpdate;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "유저(users)")
 @RestController
+@Builder
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class MyInfoController {
@@ -31,6 +33,7 @@ public class MyInfoController {
   ) {
     User user = userService.getByEmail(email);
     userService.login(user.getId());
+    user = userService.getByEmail(email);
     return ResponseEntity
         .ok()
         .body(MyProfileResponse.from(user));
