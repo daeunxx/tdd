@@ -10,7 +10,7 @@ import com.example.demo.mock.TestClockHolder;
 import com.example.demo.post.domain.Post;
 import com.example.demo.post.domain.PostCreate;
 import com.example.demo.post.domain.PostUpdate;
-import com.example.demo.post.service.PostService;
+import com.example.demo.post.service.PostServiceImpl;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 
 class PostServiceTest {
 
-  private PostService postService;
+  private PostServiceImpl postService;
 
   @BeforeEach
   void init() {
@@ -49,7 +49,7 @@ class PostServiceTest {
             .writer(user)
         .build());
 
-    postService = PostService.builder()
+    postService = PostServiceImpl.builder()
         .postRepository(fakePostRepository)
         .userRepository(fakeUserRepository)
         .clockHolder(new TestClockHolder(1678530673958L))

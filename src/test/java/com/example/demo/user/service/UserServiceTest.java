@@ -13,13 +13,12 @@ import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserCreate;
 import com.example.demo.user.domain.UserStatus;
 import com.example.demo.user.domain.UserUpdate;
-import com.example.demo.user.service.port.CertificationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class UserServiceTest {
 
-  private UserService userService;
+  private UserServiceImpl userService;
 
   @BeforeEach
   void init() {
@@ -43,7 +42,7 @@ class UserServiceTest {
         .certificationCode("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa")
         .build());
 
-    this.userService = UserService.builder()
+    this.userService = UserServiceImpl.builder()
         .userRepository(fakeUserRepository)
         .certificationService(new CertificationService(fakeMailSender))
         .uuidHolder(new TestUuidHolder("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"))
