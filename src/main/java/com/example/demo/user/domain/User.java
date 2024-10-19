@@ -3,7 +3,6 @@ package com.example.demo.user.domain;
 import com.example.demo.common.domain.exception.CertificationCodeNotMatchedException;
 import com.example.demo.common.service.port.ClockHolder;
 import com.example.demo.common.service.port.UuidHolder;
-import java.time.Clock;
 import lombok.Builder;
 import lombok.Getter;
 
