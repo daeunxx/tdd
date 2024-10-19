@@ -1,7 +1,6 @@
 package com.example.demo.post.controller;
 
 import com.example.demo.post.controller.port.PostService;
-import com.example.demo.user.controller.UserController;
 import com.example.demo.post.controller.response.PostResponse;
 import com.example.demo.post.domain.PostUpdate;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostController {
 
   private final PostService postService;
-  private final UserController userController;
 
   @GetMapping("/{id}")
   public ResponseEntity<PostResponse> getPostById(@PathVariable long id) {
